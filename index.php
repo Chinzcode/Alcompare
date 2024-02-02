@@ -1,4 +1,4 @@
-<!-- <!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,14 +10,6 @@
       Main
       <div class="box">Box</div>
     </div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/assets/ts/index.ts"></script>
   </body>
-</html> -->
-
-<?php
-
-echo "Hello World!";
-
-//lage en vite config også for å velge hvor filene dine skal bundles så du kan 
-//referere til riktig path når du skal inkludere css og javascript filene i index.php
-?>
+</html>
