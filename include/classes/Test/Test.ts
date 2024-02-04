@@ -16,6 +16,6 @@ class Test {
 DOMReady(() => {
 	const element = document.querySelector('.js-test');
 	if (element instanceof HTMLElement) {
-        new Test("Trym");
+        new Test("Daniel");
 	}
 });

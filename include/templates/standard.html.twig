@@ -1,3 +1,36 @@
-{% block test %}
-    <h1>HEISANN</h1>
+{% block document %}
+    <!doctype html>
+    <html lang="en">
+
+    {% block head %}
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alcompare</title>
+        <link rel="stylesheet" href="../html/css/main.css">
+      </head>
+    {% endblock %}
+
+    {% block navbar %}
+        <ul>
+          <li><a href="/index.php">Home</a></li>
+          <li><a href="/pages/About.php">About</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+    {% endblock %}
+
+    <body class="main">
+        {% block content %}{% endblock %}
+    </body>
+    <script type="module" src="../html/javascript/main.js"></script>
+
+    {% block footer %}
+        <footer>
+          <p>Author: Hege Refsnes<br>
+              <a href="mailto:hege@example.com">hege@example.com</a>
+          </p>
+        </footer>
+    {% endblock %}
+    </html>
 {% endblock %}

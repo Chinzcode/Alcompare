@@ -151,6 +151,6 @@ class TwigEngine {
      * @return FilesystemLoader
      */
     protected static function getDefaultTwigLoader(): FilesystemLoader {
-        return new FilesystemLoader("include");
+        return new FilesystemLoader($_SERVER['DOCUMENT_ROOT'] . "/include");
     }
 }

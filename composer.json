@@ -4,8 +4,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Alcompare\\": "include/",
-            "Alcompare\\util\\": "include/util/"
+            "Alcompare\\": "include/"
         }
     }
 }
