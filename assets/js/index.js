@@ -1,2 +1,2 @@
-import '../scss/style.scss';
+import "../scss/style.scss";
 import "../../include/classes/Test/Test.ts";
