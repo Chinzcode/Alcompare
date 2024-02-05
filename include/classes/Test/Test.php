@@ -1,12 +1,13 @@
 <?php
 
-class Test {
+namespace Alcompare\classes\Test;
 
-    public function __construct() {
-        echo "Hello World!";
+class Test {
+    public function __construct(string $name) {
+        echo "Hello " . $name;
     }
 
-    public function getTitle() {
-        return "Hello World";
+    public function test() {
+        return "";
     }
 }
