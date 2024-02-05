@@ -1,6 +1,6 @@
 <?php
 namespace Alcompare;
-require_once '../vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
 
 use Alcompare\classes\Base\Base;
 
