@@ -8,12 +8,10 @@ class SessionManager
 {
     /**
      * SessionManager constructor.
-     * Initializes the SessionManager by setting ini settings, cookie parameters, starting the session, and checking/regenerating session based on user ID.
+     * Initializes the SessionManager by starting the session, and checking/regenerating session based on user ID.
      */
     public function __construct()
     {
-        $this->setIniSetting();
-        $this->setCookieParams();
         $this->startSession();
         $this->checkAndRegenerateSessionBasedOnUserId();
     }
@@ -56,7 +54,7 @@ class SessionManager
      */
     public function checkAndRegenerateSessionBasedOnUserId(): void
     {
-        if (isset($_SESSION["user_id"])) {
+        if (isset($_SESSION["userId"])) {
             $this->checkAndRegenerateSessionIfExpired('regenerateSessionIdLoggedin');
         } else {
             $this->checkAndRegenerateSessionIfExpired('regenerateSessionId');
@@ -70,11 +68,11 @@ class SessionManager
      */
     public function checkAndRegenerateSessionIfExpired(string $regenerateFunc): void
     {
-        if (!isset($_SESSION["last_regeneration"])) {
+        if (!isset($_SESSION["lastRegeneration"])) {
             $this->$regenerateFunc();
         } else {
             $interval = 60 * 30; // 30 minutes
-            if (time() - $_SESSION["last_regeneration"] >= $interval) {
+            if (time() - $_SESSION["lastRegeneration"] >= $interval) {
                 $this->regenerateSessionIdIfLoggedIn();
             }
         }
@@ -86,11 +84,11 @@ class SessionManager
     public function regenerateSessionIdIfLoggedIn(): void
     {
         session_regenerate_id(true);
-        $userId = $_SESSION["user_id"];
+        $userId = $_SESSION["userId"];
         $newSessionId = session_create_id();
         $sessionId = $newSessionId . "_" . $userId;
         session_id($sessionId);
-        $_SESSION["last_regeneration"] = time();
+        $_SESSION["lastRegeneration"] = time();
     }
 
     /**
@@ -99,6 +97,18 @@ class SessionManager
     public function regenerateSessionId(): void
     {
         session_regenerate_id(true);
-        $_SESSION["last_regeneration"] = time();
+        $_SESSION["lastRegeneration"] = time();
+    }
+
+    /**
+     * Sets the user information in the session upon successful login.
+     *
+     * @param array $user User information to be stored in the session
+     */
+    public function setUser(array $user): void
+    {
+        $_SESSION["userId"] = $user["id"];
+        $_SESSION["username"] = htmlspecialchars($user["username"]);
+        $_SESSION["lastRegeneration"] = time();
     }
 }
