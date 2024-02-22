@@ -47,9 +47,4 @@ class SignupManager
         $stmt->bindParam(":email", $user->getEmail());
         $stmt->execute();
     }
-
-    public function isUserLoggedIn(): bool
-    {
-        return isset($_SESSION["userId"]);
-    }
 }

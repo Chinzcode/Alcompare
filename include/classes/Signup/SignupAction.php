@@ -59,16 +59,16 @@ class SignupAction
         $db = Database::getDb();
 
         if ($this->errorHandler->isInputEmpty($this->username, $this->pwd, $this->email)) {
-            $errors["emptyInput"] = "Fill in all fields!";
+            $errors["emptyInput"] = "Please fill in all required fields.";
         }
         if ($this->errorHandler->isEmailInvalid($this->email)) {
-            $errors["invalidEmail"] = "Invalid email used!";
+            $errors["invalidEmail"] = "Invalid email used.";
         }
         if ($this->errorHandler->isUsernameTaken($db, $this->username)) {
-            $errors["usernameTaken"] = "Username already taken!";
+            $errors["usernameTaken"] = "Username already taken.";
         }
         if ($this->errorHandler->isEmailRegistered($db, $this->email)) {
-            $errors["emailUsed"] = "Email already registered!";
+            $errors["emailUsed"] = "Email already registered.";
         }
 
         return $errors;
