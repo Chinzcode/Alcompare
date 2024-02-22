@@ -8,10 +8,12 @@ class SessionManager
 {
     /**
      * SessionManager constructor.
-     * Initializes the SessionManager by starting the session, and checking/regenerating session based on user ID.
+     * Initializes the SessionManager by setting ini settings, cookie parameters, starting the session, and checking/regenerating session based on user ID.
      */
     public function __construct()
     {
+        $this->setIniSetting();
+        $this->setCookieParams();
         $this->startSession();
         $this->checkAndRegenerateSessionBasedOnUserId();
     }
