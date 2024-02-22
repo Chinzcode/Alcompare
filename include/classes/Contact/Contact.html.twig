@@ -1,0 +1,26 @@
+{% extends "/templates/standard.html.twig" %}
+
+{% block content %}
+
+<h1>{{page}}</h1>
+
+<div>
+    <h3>GET IN TOUCH</h3>
+    <p>contact@example.com</p>
+</div>
+
+<form>
+    <label for="pname"></label>
+    <input type="text" id="pname" name="pname" placeholder="Name"><br><br>
+
+    <label for="email"></label>
+    <input type="text" id="email" name="email" placeholder="Email"><br><br>
+
+    <label for="content"></label>
+    <textarea name="content" id="content" cols="30" rows="10" placeholder="Content"></textarea>
+    
+    <button>SEND EMAIL</button>
+</form>
+
+
+{% endblock %}
