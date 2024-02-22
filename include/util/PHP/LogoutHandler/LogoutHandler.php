@@ -2,13 +2,18 @@
 
 namespace Alcompare\util\PHP\LogoutHandler;
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
+
 class LogoutHandler
 {
     public function __construct()
     {
-        $this->handleLogout();
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $this->handleLogout();
+        }
     }
-    public static function handleLogout(): void
+
+    public function handleLogout(): void
     {
         session_start();
         session_unset();
