@@ -11,7 +11,6 @@ use Alcompare\classes\Base\Base;
  *
  * Represents the about page of the website.
  *
- * @package Alcompare
  */
 class About extends Base
 {

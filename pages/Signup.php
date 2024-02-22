@@ -13,7 +13,6 @@ use Alcompare\util\PHP\ErrorHandler\ErrorHandler;
  *
  * Represents the page for user signup.
  *
- * @package Pages
  */
 class Signup extends Base
 {

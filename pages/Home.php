@@ -11,7 +11,6 @@ use Alcompare\classes\Base\Base;
  *
  * Represents the home page of the website.
  *
- * @package Pages
  */
 class Home extends Base
 {

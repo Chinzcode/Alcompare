@@ -11,7 +11,6 @@ use Alcompare\classes\Base\Base;
  *
  * Represents the contact page of the website.
  *
- * @package Alcompare
  */
 class Contact extends Base
 {
