@@ -8,8 +8,18 @@ use Alcompare\classes\Base\Base;
 use Alcompare\classes\Login\LoginAction;
 use Alcompare\util\PHP\ErrorHandler\ErrorHandler;
 
+/**
+ * Class Login
+ *
+ * Represents the page for user login.
+ *
+ * @package Pages
+ */
 class Login extends Base
 {
+    /**
+     * Constructs a new Login object.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -24,6 +34,7 @@ class Login extends Base
             }
         }
 
+        // Render the login page.
         echo $this->render("/classes/Login/Login.html.twig", [
             "page" => "Log in",
             "errors" => $errors,

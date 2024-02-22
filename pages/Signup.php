@@ -8,8 +8,18 @@ use Alcompare\classes\Base\Base;
 use Alcompare\classes\Signup\SignupAction;
 use Alcompare\util\PHP\ErrorHandler\ErrorHandler;
 
+/**
+ * Class Signup
+ *
+ * Represents the page for user signup.
+ *
+ * @package Pages
+ */
 class Signup extends Base
 {
+    /**
+     * Constructs a new Signup object.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -24,6 +34,7 @@ class Signup extends Base
             }
         }
 
+        // Render the signup page.
         echo $this->render("/classes/Signup/Signup.html.twig", [
             "page" => "Sign up",
             "errors" => $errors,
