@@ -2,11 +2,15 @@
 
 namespace Alcompare\classes\Database;
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
+
 use PDO;
 use PDOException;
 
 /**
- * Class DB
+ * Class Database
+ *
+ * Represents a database connection.
  */
 class Database
 {
@@ -15,7 +19,12 @@ class Database
     private const DB_USERNAME = "root";
     private const DB_PASSWORD = "123";
 
-    public static function getDb()
+    /**
+     * Get a PDO database connection.
+     *
+     * @return PDO The PDO database connection object.
+     */
+    public static function getDb(): PDO
     {
         try {
             $pdo = new PDO("mysql:host=" . self::DB_HOST . ";dbname=" . self::DB_NAME, self::DB_USERNAME, self::DB_PASSWORD);

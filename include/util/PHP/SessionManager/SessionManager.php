@@ -4,6 +4,11 @@ namespace Alcompare\util\PHP\SessionManager;
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
 
+/**
+ * Class SessionManager
+ *
+ * Manages the PHP session.
+ */
 class SessionManager
 {
     /**
@@ -20,6 +25,8 @@ class SessionManager
 
     /**
      * Sets the PHP ini settings for session configuration.
+     *
+     * @return void
      */
     public function setIniSetting(): void
     {
@@ -29,6 +36,8 @@ class SessionManager
 
     /**
      * Sets the cookie parameters for the session.
+     *
+     * @return void
      */
     public function setCookieParams(): void
     {
@@ -43,6 +52,8 @@ class SessionManager
 
     /**
      * Starts the session if it hasn't already been started.
+     *
+     * @return void
      */
     public function startSession(): void
     {
@@ -53,6 +64,8 @@ class SessionManager
 
     /**
      * Checks if the session user ID is set and regenerates the session if needed.
+     *
+     * @return void
      */
     public function checkAndRegenerateSessionBasedOnUserId(): void
     {
@@ -67,6 +80,7 @@ class SessionManager
      * Checks if the session needs to be regenerated and calls the appropriate function.
      *
      * @param string $regenerateFunc Name of the function to call for session regeneration
+     * @return void
      */
     public function checkAndRegenerateSessionIfExpired(string $regenerateFunc): void
     {
@@ -82,6 +96,8 @@ class SessionManager
 
     /**
      * Regenerates the session ID if the user is logged in.
+     *
+     * @return void
      */
     public function regenerateSessionIdIfLoggedIn(): void
     {
@@ -95,6 +111,8 @@ class SessionManager
 
     /**
      * Regenerates the session ID.
+     *
+     * @return void
      */
     public function regenerateSessionId(): void
     {
@@ -106,6 +124,7 @@ class SessionManager
      * Sets the user information in the session upon successful login.
      *
      * @param array $user User information to be stored in the session
+     * @return void
      */
     public function setUser(array $user): void
     {

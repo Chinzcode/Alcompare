@@ -4,8 +4,16 @@ namespace Alcompare\util\PHP\LogoutHandler;
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
 
+/**
+ * Class LogoutHandler
+ *
+ * Handles user logout functionality.
+ */
 class LogoutHandler
 {
+    /**
+     * Constructs a new LogoutHandler object.
+     */
     public function __construct()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -13,6 +21,13 @@ class LogoutHandler
         }
     }
 
+    /**
+     * Handles the user logout process.
+     *
+     * Unsets and destroys the session, then redirects the user to the login page.
+     *
+     * @return void
+     */
     public function handleLogout(): void
     {
         session_start();

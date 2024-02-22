@@ -12,7 +12,6 @@ use Alcompare\util\PHP\ErrorHandler\ErrorHandler;
  * Class Signup
  *
  * Represents the page for user signup.
- *
  */
 class Signup extends Base
 {

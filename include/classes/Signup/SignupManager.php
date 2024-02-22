@@ -2,15 +2,28 @@
 
 namespace Alcompare\classes\Signup;
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
+
 use Alcompare\util\PHP\User\User;
 use Alcompare\classes\Database\Database;
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
-
+/**
+ * Class SignupManager
+ *
+ * Manages user signup operations.
+ */
 class SignupManager
 {
+    /**
+     * @var SignupManager|null The singleton instance of SignupManager.
+     */
     protected static $instance = null;
 
+    /**
+     * Get the singleton instance of SignupManager.
+     *
+     * @return SignupManager The SignupManager instance.
+     */
     public static function getInstance(): SignupManager
     {
         if (self::$instance === null) {
@@ -20,6 +33,14 @@ class SignupManager
         return self::$instance;
     }
 
+    /**
+     * Create a new user with the provided username, password, and email.
+     *
+     * @param string $username The username of the new user.
+     * @param string $pwd The password of the new user.
+     * @param string $email The email of the new user.
+     * @return User The created User object.
+     */
     public function createUser(string $username, string $pwd, string $email): User
     {
         $user = new User();
@@ -30,6 +51,12 @@ class SignupManager
         return $user;
     }
 
+    /**
+     * Save the user to the database.
+     *
+     * @param User $user The User object to be saved.
+     * @return void
+     */
     private function saveUserToDb(User $user): void
     {
         $db = Database::getDb();

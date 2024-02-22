@@ -10,7 +10,6 @@ use Alcompare\classes\Base\Base;
  * Class Home
  *
  * Represents the home page of the website.
- *
  */
 class Home extends Base
 {

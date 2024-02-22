@@ -2,26 +2,47 @@
 
 namespace Alcompare\util\PHP\User;
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
+
+/**
+ * Class User
+ *
+ * Represents a user entity with username, password, and email attributes.
+ */
 class User
 {
+    /**
+     * @var string The username of the user.
+     */
     protected string $username;
+
+    /**
+     * @var string The password of the user.
+     */
     protected string $pwd;
+
+    /**
+     * @var string The email of the user.
+     */
     protected string $email;
 
     /**
-     * Get the value of name
+     * Get the username of the user.
+     *
+     * @return string The username of the user.
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
 
     /**
-     * Set the value of name
+     * Set the username of the user.
      *
-     * @return  self
+     * @param string $username The username of the user.
+     * @return self
      */
-    public function setUsername($username)
+    public function setUsername($username): self
     {
         $this->username = $username;
 
@@ -29,19 +50,22 @@ class User
     }
 
     /**
-     * Get the value of pwd
+     * Get the password of the user.
+     *
+     * @return string The password of the user.
      */
-    public function getPwd()
+    public function getPwd(): string
     {
         return $this->pwd;
     }
 
     /**
-     * Set the value of pwd
+     * Set the password of the user.
      *
-     * @return  self
+     * @param string $pwd The password of the user.
+     * @return self
      */
-    public function setPwd($pwd)
+    public function setPwd($pwd): self
     {
         $this->pwd = $pwd;
 
@@ -49,19 +73,22 @@ class User
     }
 
     /**
-     * Get the value of email
+     * Get the email of the user.
+     *
+     * @return string The email of the user.
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
 
     /**
-     * Set the value of email
+     * Set the email of the user.
      *
-     * @return  self
+     * @param string $email The email of the user.
+     * @return self
      */
-    public function setEmail($email)
+    public function setEmail($email): self
     {
         $this->email = $email;
 

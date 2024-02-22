@@ -2,6 +2,8 @@
 
 namespace Alcompare\classes\Login;
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
+
 use Exception;
 use PDOException;
 use Alcompare\classes\Database\Database;
@@ -9,15 +11,39 @@ use Alcompare\util\PHP\User\UserDatabaseQueries;
 use Alcompare\util\PHP\ErrorHandler\ErrorHandler;
 use Alcompare\util\PHP\SessionManager\SessionManager;
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
-
+/**
+ * Class LoginAction
+ *
+ * Represents the action taken during user login.
+ */
 class LoginAction
 {
+    /**
+     * @var ErrorHandler The error handler instance.
+     */
     protected ErrorHandler $errorHandler;
+
+    /**
+     * @var SessionManager The session manager instance.
+     */
     protected SessionManager $sessionManager;
+
+    /**
+     * @var string The username provided during login.
+     */
     protected string $username;
+
+    /**
+     * @var string The password provided during login.
+     */
     protected string $pwd;
 
+    /**
+     * Constructs a new LoginAction object.
+     *
+     * @param ErrorHandler $errorHandler The error handler instance.
+     * @param SessionManager $sessionManager The session manager instance.
+     */
     public function __construct(ErrorHandler $errorHandler, SessionManager $sessionManager)
     {
         $this->errorHandler = $errorHandler;
@@ -26,6 +52,11 @@ class LoginAction
         $this->pwd = $_POST["pwd"];
     }
 
+    /**
+     * Handles the user login process.
+     *
+     * @return void
+     */
     public function handleLogin(): void
     {
         $errors = [];
@@ -66,6 +97,11 @@ class LoginAction
         }
     }
 
+    /**
+     * Validates the user input during login.
+     *
+     * @return array An array of validation errors, if any.
+     */
     public function validateInput(): array
     {
         $errors = [];

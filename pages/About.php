@@ -10,7 +10,6 @@ use Alcompare\classes\Base\Base;
  * Class About
  *
  * Represents the about page of the website.
- *
  */
 class About extends Base
 {

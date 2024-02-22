@@ -12,7 +12,6 @@ use Alcompare\util\PHP\ErrorHandler\ErrorHandler;
  * Class Login
  *
  * Represents the page for user login.
- *
  */
 class Login extends Base
 {

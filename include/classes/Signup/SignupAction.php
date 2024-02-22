@@ -2,6 +2,8 @@
 
 namespace Alcompare\classes\Signup;
 
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
+
 use PDOException;
 use Alcompare\classes\Database\Database;
 use Alcompare\classes\Signup\SignupManager;
@@ -9,16 +11,44 @@ use Alcompare\util\PHP\ErrorHandler\ErrorHandler;
 use Alcompare\util\PHP\SessionManager\SessionManager;
 use Exception;
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
-
+/**
+ * Class SignupAction
+ *
+ * Represents the action taken during user signup.
+ */
 class SignupAction
 {
+    /**
+     * @var ErrorHandler The error handler instance.
+     */
     protected ErrorHandler $errorHandler;
+
+    /**
+     * @var SessionManager The session manager instance.
+     */
     protected SessionManager $sessionManager;
+
+    /**
+     * @var string The username provided during signup.
+     */
     protected string $username;
+
+    /**
+     * @var string The password provided during signup.
+     */
     protected string $pwd;
+
+    /**
+     * @var string The email provided during signup.
+     */
     protected string $email;
 
+    /**
+     * Constructs a new SignupAction object.
+     *
+     * @param ErrorHandler $errorHandler The error handler instance.
+     * @param SessionManager $sessionManager The session manager instance.
+     */
     public function __construct(ErrorHandler $errorHandler, SessionManager $sessionManager)
     {
         $this->errorHandler = $errorHandler;
@@ -28,6 +58,11 @@ class SignupAction
         $this->email = $_POST["email"];
     }
 
+    /**
+     * Handles the user signup process.
+     *
+     * @return void
+     */
     public function handleSignup(): void
     {
         $errors = [];
@@ -53,6 +88,11 @@ class SignupAction
         }
     }
 
+    /**
+     * Validates the user input during signup.
+     *
+     * @return array An array of validation errors, if any.
+     */
     public function validateInput(): array
     {
         $errors = [];

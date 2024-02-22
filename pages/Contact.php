@@ -10,7 +10,6 @@ use Alcompare\classes\Base\Base;
  * Class Contact
  *
  * Represents the contact page of the website.
- *
  */
 class Contact extends Base
 {

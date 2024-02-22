@@ -1,5 +1,8 @@
 <?php
+
 namespace Alcompare\util\Twig;
+
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
 
 use Exception;
 use Twig\Environment;
