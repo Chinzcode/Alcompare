@@ -4,32 +4,27 @@
 
 <h1>{{page}}</h1>
 
-{% if errors["emptyInput"] %}
-    {{errors["emptyInput"]}}
-{% endif %}
+<span>
+    {% if errors["emptyInput"] %}
+        {{errors["emptyInput"]}}
+    {% elseif errors["invalidEmail"]%}
+        {{errors["invalidEmail"]}}
+    {% elseif errors["emailUsed"]%}
+        {{errors["emailUsed"]}}
+    {% elseif errors["usernameTaken"]%}
+        {{errors["usernameTaken"]}}
+    {% endif %}
+</span>
 
 <form action="./Signup.php" method="post">
     <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username" placeholder="Enter your username"><br>
-    <span>
-        {% if errors["usernameTaken"]%}
-            {{errors["usernameTaken"]}}
-        {% endif %}
-    </span>
+    <input type="text" id="username" name="username" placeholder="Enter your username" required><br>
     <br>
     <label for="pwd">Password:</label><br>
-    <input type="password" id="pwd" name="pwd" placeholder="Enter your password"><br>
+    <input type="password" id="pwd" name="pwd" placeholder="Enter your password" required><br>
     <br>
     <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" placeholder="Enter your email"><br>
-    <span>
-        {% if errors["invalidEmail"]%}
-            {{errors["invalidEmail"]}}
-        {% endif %}
-        {% if errors["emailUsed"]%}
-            {{errors["emailUsed"]}}
-        {% endif %}
-    </span>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
     <br>
     <button type="submit">Signup</button>
 </form>
