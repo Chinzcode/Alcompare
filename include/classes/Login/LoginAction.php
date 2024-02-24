@@ -66,7 +66,7 @@ class LoginAction
 
             if (empty($errors)) {
                 $db = Database::getDb();
-                $user = (new UserDatabaseQueries())->getUser($db, $this->username);
+                $user = UserDatabaseQueries::getUser($db, $this->username);
 
                 if ($user) {
                     $newSessionId = session_create_id();

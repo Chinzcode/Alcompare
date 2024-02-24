@@ -20,7 +20,7 @@ class UserDatabaseQueries
      * @param string $username The username to retrieve.
      * @return array|false The fetched username data as an associative array, or false if no username found.
      */
-    public function getUsername(PDO $pdo, string $username): array|false
+    public static function getUsername(PDO $pdo, string $username): array|false
     {
         $query = "SELECT username FROM users WHERE username = :username;";
         $stmt = $pdo->prepare($query);
@@ -38,7 +38,7 @@ class UserDatabaseQueries
      * @param string $email The email to retrieve.
      * @return array|false The fetched email data as an associative array, or false if no email found.
      */
-    public function getEmail(PDO $pdo, string $email): array|false
+    public static function getEmail(PDO $pdo, string $email): array|false
     {
         $query = "SELECT username FROM users WHERE email = :email;";
         $stmt = $pdo->prepare($query);
@@ -56,7 +56,7 @@ class UserDatabaseQueries
      * @param string $username The username of the user to retrieve.
      * @return array|false The fetched user data as an associative array, or false if no user found.
      */
-    public function getUser(PDO $pdo, string $username): array|false
+    public static function getUser(PDO $pdo, string $username): array|false
     {
         $query = "SELECT * FROM users WHERE username = :username;";
         $stmt = $pdo->prepare($query);

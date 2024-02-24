@@ -15,19 +15,6 @@ use PDO;
 class ErrorHandler
 {
     /**
-     * @var UserDatabaseQueries The user database queries instance.
-     */
-    protected UserDatabaseQueries $userDbQuery;
-
-    /**
-     * Constructs a new ErrorHandler object.
-     */
-    public function __construct()
-    {
-        $this->userDbQuery = new UserDatabaseQueries();
-    }
-
-    /**
      * Checks if any of the input fields are empty.
      *
      * @param string $username The username input.
@@ -60,7 +47,7 @@ class ErrorHandler
      */
     public function isUsernameTaken(PDO $pdo, string $username): bool
     {
-        $result = $this->userDbQuery->getUsername($pdo, $username);
+        $result = UserDatabaseQueries::getUsername($pdo, $username);
         return !empty($result);
     }
 
@@ -73,7 +60,7 @@ class ErrorHandler
      */
     public function isEmailRegistered(PDO $pdo, string $email): bool
     {
-        $result = $this->userDbQuery->getEmail($pdo, $email);
+        $result = UserDatabaseQueries::getEmail($pdo, $email);
         return !empty($result);
     }
 
@@ -99,8 +86,10 @@ class ErrorHandler
      */
     public function isUserCredentialsInvalid(PDO $pdo, string $username, string $pwd): bool
     {
-        $user = $this->userDbQuery->getUser($pdo, $username);
-        if (!$user) return true;
+        $user = UserDatabaseQueries::getUser($pdo, $username);
+        if (!$user) {
+            return true;
+        }
         $hashedPwd = $user["pwd"];
         return !password_verify($pwd, $hashedPwd);
     }
