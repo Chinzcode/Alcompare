@@ -21,13 +21,12 @@
       <li><a href="/pages/Home.php">Home</a></li>
       <li><a href="/pages/About.php">About</a></li>
       <li><a href="/pages/Contact.php">Contact</a></li>
-      <form action="/include/util/PHP/LogoutHandler/LogoutHandler.php" method="post">
-        <button>Logout</button>
+      <li><a href="/include/util/PHP/LogoutHandler/LogoutHandler.php">Log out</a></li>
       </form>
     {% endif %}
   </ul>
 
-  <span style="color:white">
+  <span>
     {% if isUserLoggedIn is not empty %}      
       <p>Welcome, {{username}}!</p>
     {% endif %}

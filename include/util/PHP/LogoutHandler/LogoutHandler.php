@@ -16,9 +16,7 @@ class LogoutHandler
      */
     public function __construct()
     {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $this->handleLogout();
-        }
+        $this->handleLogout();
     }
 
     /**
