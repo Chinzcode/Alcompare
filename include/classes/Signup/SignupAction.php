@@ -80,7 +80,9 @@ class SignupAction
                 exit;
             }
         } catch (PDOException $e) {
-            die("Query failed: " . $e->getMessage());
+            error_log("Query failed: " . $e->getMessage());
+            header("Location: /pages/Signup.php");
+            exit;
         } catch (Exception $e) {
             error_log("Unexpected error: " . $e->getMessage());
             header("Location: /pages/error.php");
