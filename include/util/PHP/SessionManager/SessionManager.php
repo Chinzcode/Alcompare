@@ -2,6 +2,8 @@
 
 namespace Alcompare\util\PHP\SessionManager;
 
+use Alcompare\util\PHP\User\User;
+
 require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
 
 /**
@@ -123,13 +125,13 @@ class SessionManager
     /**
      * Sets the user information in the session upon successful login.
      *
-     * @param array $user User information to be stored in the session
+     * @param User $user User object containing the user information to be stored in the session
      * @return void
      */
-    public function setUser(array $user): void
+    public function setUser(User $user): void
     {
-        $_SESSION["userId"] = $user["id"];
-        $_SESSION["username"] = htmlspecialchars($user["username"]);
+        $_SESSION["userId"] = $user->getId();
+        $_SESSION["username"] = htmlspecialchars($user->getUsername());
         $_SESSION["lastRegeneration"] = time();
     }
 }

@@ -70,7 +70,7 @@ class LoginAction
 
                 if ($user) {
                     $newSessionId = session_create_id();
-                    $sessionId = $newSessionId . "_" . $user["id"];
+                    $sessionId = $newSessionId . "_" . $user->getId();
                     session_id($sessionId);
 
                     $this->sessionManager->setUser($user);

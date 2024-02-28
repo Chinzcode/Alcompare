@@ -27,6 +27,11 @@ class User
     protected string $email;
 
     /**
+     * @var int The id of the user.
+     */
+    protected int $id;
+
+    /**
      * Get the username of the user.
      *
      * @return string The username of the user.
@@ -91,6 +96,29 @@ class User
     public function setEmail($email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the id of the user.
+     *
+     * @return int The id of the user.
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the id of the user.
+     *
+     * @param int $id The id of the user.
+     * @return self
+     */
+    public function setId($id): self
+    {
+        $this->id = $id;
 
         return $this;
     }

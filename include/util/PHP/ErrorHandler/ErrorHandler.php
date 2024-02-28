@@ -90,7 +90,7 @@ class ErrorHandler
         if (!$user) {
             return true;
         }
-        $hashedPwd = $user["pwd"];
+        $hashedPwd = $user->getPwd();
         return !password_verify($pwd, $hashedPwd);
     }
 }

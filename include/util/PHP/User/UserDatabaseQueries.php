@@ -54,9 +54,9 @@ class UserDatabaseQueries
      *
      * @param PDO $pdo The PDO database connection object.
      * @param string $username The username of the user to retrieve.
-     * @return array|false The fetched user data as an associative array, or false if no user found.
+     * @return User|null The fetched user object, or null if no user found.
      */
-    public static function getUser(PDO $pdo, string $username): array|false
+    public static function getUser(PDO $pdo, string $username): ?User
     {
         $query = "SELECT * FROM users WHERE username = :username;";
         $stmt = $pdo->prepare($query);
@@ -64,6 +64,16 @@ class UserDatabaseQueries
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+
+        if ($result) {
+            $user = new User();
+            $user->setId($result['id']);
+            $user->setUsername($result['username']);
+            $user->setPwd($result['pwd']);
+            $user->setEmail($result['email']);
+            return $user;
+        } else {
+            return null;
+        }
     }
 }
