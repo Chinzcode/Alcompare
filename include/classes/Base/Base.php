@@ -31,8 +31,12 @@ class Base
     {
         $this->twig = TwigEngine::getInstance();
         $this->sessionManager = new SessionManager();
-        $this->twig->addGlobalVariable("isUserLoggedIn", $_SESSION["userId"]);
-        $this->twig->addGlobalVariable("username", $_SESSION["username"]);
+        
+        $userId = isset($_SESSION["userId"]) ? $_SESSION["userId"] : null;
+        $username = isset($_SESSION["username"]) ? $_SESSION["username"] : null;
+        
+        $this->twig->addGlobalVariable("isUserLoggedIn", $userId);
+        $this->twig->addGlobalVariable("username", $username);
     }
 
     /**
