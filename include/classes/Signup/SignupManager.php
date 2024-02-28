@@ -69,9 +69,9 @@ class SignupManager
 
         $hashedPwd = password_hash($user->getPwd(), PASSWORD_BCRYPT, $options);
 
-        $stmt->bindParam(":username", $user->getUsername());
+        $stmt->bindValue(":username", $user->getUsername());
         $stmt->bindParam(":pwd", $hashedPwd);
-        $stmt->bindParam(":email", $user->getEmail());
+        $stmt->bindValue(":email", $user->getEmail());
         $stmt->execute();
     }
 }
