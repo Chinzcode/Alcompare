@@ -1,22 +1,29 @@
 <?php
+
 namespace Alcompare;
+
 require_once $_SERVER['DOCUMENT_ROOT'].'/config/setup.php';
 
 use Alcompare\classes\Base\Base;
 
-class About extends Base {
-    public function __construct() {
+/**
+ * Class About
+ *
+ * Represents the about page of the website.
+ */
+class About extends Base
+{
+    /**
+     * Constructs a new About object.
+     */
+    public function __construct()
+    {
         parent::__construct();
-        echo $this->render("/templates/test.html.twig", [
-            "trym" => "homo",
-            "daniel" => "sykt kul",
-            "marcus" => "autist",
-            "title" => $this->getTitle(),
+        
+        // Render the about page.
+        echo $this->render("/classes/About/About.html.twig", [
+            "page" => "About",
         ]);
-    }
-
-    private function getTitle() {
-        return "TITTEL";
     }
 }
 
