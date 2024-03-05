@@ -19,11 +19,15 @@ class Contact extends Base
     public function __construct()
     {
         parent::__construct();
-        
+
         // Render the contact page.
-        echo $this->render("/classes/Contact/Contact.html.twig", [
-            "page" => "Contact",
-        ]);
+        if (isset($_SESSION["userId"])) {
+            echo $this->render("/classes/Contact/Contact.html.twig", [
+                "page" => "Contact",
+            ]);
+        } else {
+            header("Location: /pages/Login.php");
+        }
     }
 }
 
