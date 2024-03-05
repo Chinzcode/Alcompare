@@ -21,9 +21,13 @@ class Home extends Base
         parent::__construct();
 
         // Render the home page.
-        echo $this->render("/classes/Home/Home.html.twig", [
-            "title" => $this->getTitle(),
-        ]);
+        if (isset($_SESSION["userId"])) {
+            echo $this->render("/classes/Home/Home.html.twig", [
+                "title" => $this->getTitle(),
+            ]);
+        } else {
+            header("Location: /pages/Login.php");
+        }
     }
 
     /**

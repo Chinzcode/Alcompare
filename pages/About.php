@@ -19,11 +19,15 @@ class About extends Base
     public function __construct()
     {
         parent::__construct();
-        
+
         // Render the about page.
-        echo $this->render("/classes/About/About.html.twig", [
-            "page" => "About",
-        ]);
+        if (isset($_SESSION["userId"])) {
+            echo $this->render("/classes/About/About.html.twig", [
+                "page" => "About",
+            ]);
+        } else {
+            header("Location: /pages/Login.php");
+        }
     }
 }
 
