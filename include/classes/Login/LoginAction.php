@@ -69,10 +69,6 @@ class LoginAction
                 $user = UserDatabaseQueries::getUser($db, $this->username);
 
                 if ($user) {
-                    $newSessionId = session_create_id();
-                    $sessionId = $newSessionId . "_" . $user->getId();
-                    session_id($sessionId);
-
                     $this->sessionManager->setUser($user);
 
                     header("Location: /pages/Home.php?login=success");
